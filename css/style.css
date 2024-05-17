@@ -2812,3 +2812,10 @@ ul.top-info li p.info-text {
   width: 10px;
   height: 10px !important; 
 }
+
+.publ-ul {
+  margin: 10px;
+  padding: 20px;
+  list-style: square;
+  text-align: justify;
+}
