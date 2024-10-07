@@ -2157,6 +2157,21 @@ ul.dropdown-menu li {
   background-attachment: fixed;
 }
 
+.bg-4 {
+  background-image: url("../images/temp_banner_events_page1.png");
+  /*# background-size: cover;*/
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*#background-attachment: fixed; */
+  background-position:center;
+}
+
+.bg-5 {
+  background: url("../images/sirah_box_bg_cut.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .widget {
   margin-bottom: 30px;
 }
