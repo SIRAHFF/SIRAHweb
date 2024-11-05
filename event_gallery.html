@@ -1,0 +1,880 @@
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title> SIRAH Force Field </title>
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Webpage for the Southamerican Initiative for a Rapid and Accurate Hamiltonian coarse-grained force field">
+  <meta name="keywords" content="sirah, sirah force field, coarse-grained, coarse-grained force field">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="SIRAH Team">
+  <meta name="theme-name" content="airspace">
+  <meta name="generator" content="Themefisher Airspace Template v1.0">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/ico-rojo-blanco.png" />
+
+
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- Ionic Icon Css -->
+  <link rel="stylesheet" href="plugins/Ionicons/css/ionicons.min.css">
+  <!-- animate.css -->
+  <link rel="stylesheet" href="plugins/animate-css/animate.css">
+  <!-- Magnify Popup -->
+  <link rel="stylesheet" href="plugins/magnific-popup/magnific-popup.css">
+  <!-- Slick CSS -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Load Twitter -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/gallery.js"></script>
+	
+  <script>
+        function zoom(id){            
+            // Get the modal
+            var modal = document.getElementById("myModal");
+            var img = document.getElementById(id);
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");                        
+            modal.style.display = "block";
+            modalImg.src = img.src;
+            captionText.innerHTML = img.alt;
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() { 
+                modal.style.display = "none";
+        }};
+  </script>
+  
+   <style>
+.desktop_2 * {
+  font-family: Nunito, sans-serif;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+
+.desktop_2 button {
+  cursor: pointer;
+}
+
+.desktop_2 img {
+  cursor: pointer;
+}
+
+.desktop_2 img:hover {
+  transform: scale(1.02);
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  transition-property: all;
+}
+
+.desktop_2 .hdImg {
+  display: none;
+}
+
+.desktop_2 .btn-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.desktop_2 .project:hover .btn-box {
+  display: block;
+}
+
+.desktop_2 .Container {
+  width: 890px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-bottom: 50px;
+  margin-left: auto;
+}
+
+.desktop_2 .portfolio {
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: white;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.desktop_2 .project {
+  position: relative;
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+}
+
+.desktop_2 .overlay {
+  position: fixed;
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: rgba(71, 69, 69, 0.7);
+  height: 100%;
+  width: 100%;
+  max-height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  display: none;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.desktop_2 .overlay-inner {
+  top: 50%;
+  right: 0px;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: white;
+  max-width: 700px;
+  width: fit-content;
+  padding-top: 35px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  position: relative;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  opacity: 1;
+  max-width: 50%;
+  max-height: 85%;
+}
+
+.desktop_2 .close {
+  position: absolute;
+  top: 9px;
+  right: 15px;
+  background-image: none;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  outline-color: initial;
+  outline-style: initial;
+  outline-width: 0px;
+  color: #474545;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-top-style: initial;
+  border-right-style: initial;
+  border-bottom-style: initial;
+  border-left-style: initial;
+  border-top-color: initial;
+  border-right-color: initial;
+  border-bottom-color: initial;
+  border-left-color: initial;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.desktop_2 .overlay-inner .hdImgs {
+  width: fit-content;
+  height: calc(80% - 55px);
+  display: flex;
+}
+
+.desktop_2 .overlay-inner img {
+  max-height: 100%;
+  max-width: 100%;
+  transform: none;
+}
+
+.desktop_2 .bigImg {
+  width: 665px;
+  height: 440px;
+  margin-top: 0px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.desktop_2 .project-image {
+  height: 215px;
+  width: 215px;
+  margin-top: 0px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.desktop_2 .above {
+  display: flex;
+}
+
+.desktop_2 .bottom {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 1024px) {
+  .desktop_2 .project-image {
+    width: 165px;
+    height: 165px;
+  }
+
+  .desktop_2 .Container {
+    width: 690px;
+    margin-top: 80px;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-left: auto;
+  }
+
+  .desktop_2 .bigImg {
+    width: 515px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop_2 .project {
+    width: 220px;
+    display: inline-block;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .desktop_2 .project-first {
+    width: 450px;
+  }
+
+  .desktop_2 .above {
+    flex-direction: column;
+  }
+
+  .desktop_2 .portfolio {
+    justify-content: flex-start;
+  }
+
+  .desktop_2 .Container {
+    width: 450px;
+  }
+
+  .desktop_2 .bigImg {
+    width: 450px;
+  }
+
+  .desktop_2 .project-image {
+    width: 220px;
+    height: 200px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    display: inline-block;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+  }
+
+  .desktop_2 .side {
+    display: flex;
+    width: 450px;
+    justify-content: space-between;
+  }
+
+  .desktop_2 .bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  .desktop_2 .project-image.last {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+  }
+
+  .desktop_2 .project-image.last {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  .desktop_2 .bigImg {
+    width: 250px;
+    height: 200px;
+  }
+
+  .desktop_2 .project {
+    width: 110px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+  }
+
+  .desktop_2 .Container {
+    width: 250px;
+    margin-top: 80px;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-left: auto;
+  }
+
+  .desktop_2 .project-image {
+    width: 110px;
+    height: 110px;
+  }
+
+  .desktop_2 .side {
+    flex-direction: row;
+    width: 250px;
+  }
+
+  .desktop_2 .project-image.last {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+  }
+
+  .desktop_2 .project.last-project {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 30px;
+  }
+
+  .desktop_2 .project-first {
+    width: 250px;
+  }
+
+  .desktop_2 .overlay-inner {
+    max-width: 90%;
+  }
+}
+      
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+      }
+      
+      /* Modal Content (image) */
+      .modal-content {
+        margin: auto;
+        display: block;
+        width: 100%;
+       /* max-width: 700px;  */
+      }
+      
+      /* Caption of Modal Image */
+      #caption {
+        margin: auto;
+        display: block;
+        width: 100%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+      }
+      
+      /* Add Animation */
+      .modal-content, #caption {  
+        -webkit-animation-name: zoom;
+        -webkit-animation-duration: 0.6s;
+        animation-name: zoom;
+        animation-duration: 0.6s;
+      }
+      
+      @-webkit-keyframes zoom {
+        from {-webkit-transform:scale(0)} 
+        to {-webkit-transform:scale(1)}
+      }
+      
+      @keyframes zoom {
+        from {transform:scale(0)} 
+        to {transform:scale(1)}
+      }
+      
+      /* The Close Button */
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      
+      /* 100% Image Width on Smaller Screens */
+      @media only screen and (max-width: 700px){
+        .modal-content {
+          width: 100%;
+        }
+      }
+		.grid-container {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 20px;
+		}
+
+   </style>	
+
+</head>
+
+<body id="body">
+
+	<div id="top-bar" class="top-bar">
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-8 col-md-8">
+              </div>
+              <!--/ Top info end -->
+  
+               <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
+			    <div class="team-social-icons">
+					<a title="Twitter" href="https://x.com/SIRAHForcefield" target="_blank">
+						<i class="fa-brands fa-x-twitter" style="font-size: 1.1em;"></i>  <!-- <i class="fab fa-twitter" style="font-size: 1.1em;"></i> -->
+                    </a>
+                    <a title="YouTube" href="https://www.youtube.com/channel/UCLK25yNsJPlej_fEKdLc1qw" target="_blank">
+						<i class="fab fa-youtube" style="font-size: 1.1em;"></i>
+                    </a>
+                    <a title="Github" href="https://github.com/SIRAHFF" target="_blank">
+                        <i class="fab fa-github" style="font-size: 1.1em;"></i>
+                    </a>
+					<a title="GScholar" href="https://scholar.google.com.uy/citations?hl=es&user=Rqr6Jw4AAAAJ" target="_blank">
+                        <i class="fa-brands fa-google-scholar" style="font-size: 1.1em;"></i> <!-- <i class="fa-brands fa-google-scholar" style="font-size: 1.1em;"></i> -->
+                    </a>
+                 </div>
+              </div>
+              <!--/ Top social end -->
+          </div>
+          <!--/ Content row end -->
+        </div>
+        <!--/ Container end -->
+    </div>
+    <!--/ Topbar end -->
+	
+<!-- Header Start -->
+<header id="myHeader" class="navigation">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<nav class="navbar navbar-expand-lg p-0">
+					<a class="navbar-brand" href="index.html">
+						<img src="images/sirah-logo-novo-4.png" alt="Logo" style="width: 210px; height: 70px;">
+					</a>
+
+					<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="ion-android-menu"></span>
+					</button>
+
+					<div class="collapse navbar-collapse ml-auto" id="navbarsExample09">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item active">
+								<a class="nav-link" href="index.html">Home</a>
+							</li>
+							<li class="nav-item @@news"><a class="nav-link" href="index.html#NEWS">NEWS</a></li>
+							<li class="nav-item @@news"><a class="nav-link" href="index.html#ABOUT">About</a></li>
+							<li class="nav-item dropdown @@download">
+								<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">Download <span class="ion-ios-arrow-down"></span></a>
+								<ul class="dropdown-menu" aria-labelledby="dropdown05">
+									<li><a class="dropdown-item @@downloadAmber" href="https://github.com/SIRAHFF/documentation/releases/tag/AMBER" target="_blank">Amber</a></li>
+									<li><a class="dropdown-item @@downloadGromacs" href="https://github.com/SIRAHFF/documentation/releases/tag/GROMACS" target="_blank">Gromacs</a></li>
+									
+								</ul>
+							</li>
+							<li class="nav-item @@contact"><a class="nav-link" href="https://sirahff.github.io/documentation/index.html" target="_blank">Tutorials</a></li>
+							<li class="nav-item @@contact"><a class="nav-link" href="publications2.html">Publications</a></li>
+							<li class="nav-item @@contact"><a class="nav-link" href="events.html">Events</a></li>	
+							<li class="nav-item @@contact"><a class="nav-link" href="team.html">People</a></li>									
+							<li class="nav-item @@contact"><a class="nav-link" href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header><!-- header close -->
+
+<section class="page-title bg-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <h1>EVENT GALLERY</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+	
+<section id="main-container" class="main-container pb-4">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-12">
+		<br>
+        <h2 class="section-sub-title">Workshop and Course on Molecular, Physical and Computational Virology</h2>
+      </div>
+    </div>
+	
+    <!--/ Title row end -->
+	
+<div class="desktop_2" unique-script-id="w-w-dm-id">
+  <div class="Container">
+    <div class="portfolio">
+      <div class="above">
+        <div class="project project-first">
+          <img alt="" class="bigImg image-block" id="big1" src="https://drive.google.com/thumbnail?id=1KolSlC9zI0nspDErgOeLBYX_6jmsCdyJ&sz=w4000" onclick="zoom('big1')" style="height: 95%;">
+        </div>
+        <div class="side">
+          <div class="project">
+            <img class="project-image" alt=""  id="side1" src="https://drive.google.com/thumbnail?id=1X1zXEHQuSrKb2ArurG_xSlyIJLICFr2G&sz=w4000" onclick="zoom('side1')" style="height: 90%; width: 102%; margin-bottom:28px;">
+         </div>
+          <div class="project">
+            <img alt="" class="project-image" id="side2" src="https://drive.google.com/thumbnail?id=1PD2oAg9U_7taKJNJaZ2nwWbqKUCRfboH&sz=w4000" onclick="zoom('side2')" style="height: 90%; width: 102%; margin-bottom:28px;" >
+          </div>
+		  <div class="project">
+            <img alt="" class="project-image" id="side3" src="https://drive.google.com/thumbnail?id=1mPPutPcVL7XwE0zEoO8fZ5YeOZGXuK6I&sz=w4000" onclick="zoom('side3')" style="height: 90%; width: 102%; margin-bottom:28px;" >
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="project">
+          <img alt="" class="project-image" id="row1" src="https://drive.google.com/thumbnail?id=1rQ0ibXlKMQzm4Y5QQFp329BTllijuQ5s&sz=w4000" onclick="zoom('row1')" style="width: 98%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row2" src="https://drive.google.com/thumbnail?id=18UPsBi2ZVr07YAhkCK3qrDnKlZ1YwWPo&sz=w4000" onclick="zoom('row2')" style="width: 100%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row4" src="https://drive.google.com/thumbnail?id=1iMjeBkX82I-DDav_q-6zQT_qO7768Qgy&sz=w4000" onclick="zoom('row4')" style="width: 100%; margin-left: 5px;">		  
+        </div>
+	   </div>
+	  <div class="bottom">
+        <div class="project">
+          <img alt="" class="project-image" id="row5" src="https://drive.google.com/thumbnail?id=1UuTnSHNG1_ld3Au-vev2aOut_wPQfSyO&sz=w4000" onclick="zoom('row5')" style="width: 98%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row6" src="https://drive.google.com/thumbnail?id=1qYPKyjSYnY7e5qfvNJb-gLvm99ew9SMB&sz=w4000" onclick="zoom('row6')" style="width: 100%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row7" src="https://drive.google.com/thumbnail?id=1VLd6Y5_Qt0TPP5H5CjP2VM-83VXVWszu&sz=w4000" onclick="zoom('row7')" style="width: 100%; margin-left: 5px;">		  
+        </div>
+	  </div>
+	 <div class="bottom">
+      <div class="project">
+          <img alt="" class="project-image" id="row8" src="https://drive.google.com/thumbnail?id=15Lgr0LHZMCXgwOzHGX-VxgtEnQwMPLNb&sz=w4000" onclick="zoom('row8')" style="width: 98%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row9" src="https://drive.google.com/thumbnail?id=1zIDWGNIVzNY3GawzYq73NxMgZmyG6Qkm&sz=w4000" onclick="zoom('row9')" style="width: 100%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row10" src="https://drive.google.com/thumbnail?id=1vDoWB13zzU3iCdMTn4FIhoStgPh0ux9J&sz=w4000" onclick="zoom('row10')" style="width: 100%; margin-left: 5px;">		  
+        </div>
+	  </div>
+	 <div class="bottom">
+      <div class="project">
+          <img alt="" class="project-image" id="row11" src="https://drive.google.com/thumbnail?id=1SZcQSA7-Kbx6lQfPVYXPReltGOoM-Al0&sz=w4000" onclick="zoom('row11')" style="width: 98%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row12" src="https://drive.google.com/thumbnail?id=1RURq3dtEkpl23QffsGDbP-uaQ6F1vhkv&sz=w4000" onclick="zoom('row12')" style="width: 100%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row13" src="https://drive.google.com/thumbnail?id=1PVCGZLAfseKysss0pRovKZKiv_WC628Q&sz=w4000" onclick="zoom('row13')" style="width: 100%; margin-left: 5px;">		  
+        </div>
+	  </div>
+	 <div class="bottom">
+      <div class="project">
+          <img alt="" class="project-image" id="row14" src="https://drive.google.com/thumbnail?id=1D3C9BVXqAFpEGJt5OBmQpjwsGhFms5n0&sz=w4000" onclick="zoom('row14')" style="width: 98%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row15" src="https://drive.google.com/thumbnail?id=1WUddjkBnMLGoIPlTkCci7s_AKYaYoNLc&sz=w4000" onclick="zoom('row15')" style="width: 100%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row16" src="https://drive.google.com/thumbnail?id=1T3md9rIeKuFUuCju5gHdk6TMe_JXBSdl&sz=w4000" onclick="zoom('row16')" style="width: 100%; margin-left: 5px;">		  
+        </div>
+	  </div>
+	 <div class="bottom">
+      <div class="project">
+          <img alt="" class="project-image" id="row17" src="https://drive.google.com/thumbnail?id=1S-lqBd3D5DETdmpxFI95BvZz6nMJLFQ6&sz=w4000" onclick="zoom('row17')" style="width: 98%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row18" src="https://drive.google.com/thumbnail?id=1UHqYNJLUvfI76-6RIMSXD-AF4kWC78oT&sz=w4000" onclick="zoom('row18')" style="width: 100%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row19" src="https://drive.google.com/thumbnail?id=1uzpg0L7PPnS9IBsfJBG9mKkjRHmEBliP&sz=w4000" onclick="zoom('row19')" style="width: 100%; margin-left: 5px;">		  
+        </div>
+	  </div>
+	 <div class="bottom">
+      <div class="project">
+          <img alt="" class="project-image" id="row20" src="https://drive.google.com/thumbnail?id=1-SbPNpTtr-Ty42bw6lsTvJMskkngoM2e&sz=w4000" onclick="zoom('row20')" style="width: 98%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row21" src="https://drive.google.com/thumbnail?id=1PletGogGS44y4fOWNoHeTchLmnAjBYYV&sz=w4000" onclick="zoom('row21')" style="width: 100%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row22" src="https://drive.google.com/thumbnail?id=1MEHqcpIn2S0gV3M29eBsfhBz6_briKe8&sz=w4000" onclick="zoom('row22')" style="width: 100%; margin-left: 5px;">		  
+        </div>
+	  </div>
+	 <div class="bottom">
+      <div class="project">
+          <img alt="" class="project-image" id="row23" src="https://drive.google.com/thumbnail?id=1mZFYtc5ccW0ldeTTQgXrsDgLopX7wDzT&sz=w4000" onclick="zoom('row23')" style="width: 98%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row24" src="https://drive.google.com/thumbnail?id=1wrGYpmU6jronpQesvaWHJPrtJzHJs1Gx&sz=w4000" onclick="zoom('row24')" style="width: 100%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row25" src="https://drive.google.com/thumbnail?id=1sIAMP_VaVf6mL-Ou8Ks2soLj6OT9TwSP&sz=w4000" onclick="zoom('row25')" style="width: 100%; margin-left: 5px;">		  
+        </div>
+	  </div>
+	  	 <div class="bottom">
+      <div class="project">
+          <img alt="" class="project-image" id="row26" src="https://drive.google.com/thumbnail?id=1Ozj5cBgiBaJ95h4OW4TQLd5lJ36kq7-0&sz=w4000" onclick="zoom('row26')" style="width: 98%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row27" src="https://drive.google.com/thumbnail?id=1nIdo0McImwffwzClXE82Qey0yvAG8Bbb&sz=w4000" onclick="zoom('row27')" style="width: 100%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row28" src="https://drive.google.com/thumbnail?id=1-KrnWokGFUqIRppX8_iV5IeX3lqCYuKW&sz=w4000" onclick="zoom('row28')" style="width: 100%; margin-left: 5px;">		  
+        </div>
+	  </div>
+	  <div class="bottom">
+	   <div class="project">
+          <img alt="" class="project-image" id="row29" src="https://drive.google.com/thumbnail?id=18m-sAmNExsDDFFHRHFHnMPFpaJcRkpEZ&sz=w4000" onclick="zoom('row29')" style="width: 98%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row30" src="https://drive.google.com/thumbnail?id=1vH24A0tCenmkVadfDxPBZP9lWVqEzfco&sz=w4000" onclick="zoom('row30')" style="width: 100%; margin-right: 10px;">
+         </div>
+        <div class="project">
+          <img alt="" class="project-image" id="row31" src="https://drive.google.com/thumbnail?id=1lTvNiysYCjT-boC9iYlUmBDrkHpEXQa-&sz=w4000" onclick="zoom('row31')" style="width: 100%; margin-left: 5px;">		  
+        </div>
+	  </div>
+ 
+		
+					<!-- The Modal -->
+					<div id="myModal" class="modal">
+						<span class="close">×</span>
+						<img class="modal-content" id="img01">
+						<div id="caption"></div>
+					</div>   
+					
+					<script>
+					// Get the modal
+					var modal = document.getElementById("myModal");
+					
+					// Get the image and insert it inside the modal - use its "alt" text as a caption
+					var img = document.getElementById("project-image");
+					var modalImg = document.getElementById("img01");
+					var captionText = document.getElementById("caption");
+					img.onclick = function(){
+						modal.style.display = "block";
+						modalImg.src = img.src;
+						captionText.innerHTML = img.alt;
+					}
+					
+					// Get the <span> element that closes the modal
+					var span = document.getElementsByClassName("close")[0];
+					
+					// When the user clicks on <span> (x), close the modal
+					span.onclick = function() { 
+					modal.style.display = "none";
+					}
+					</script>	
+					
+										<!-- The Modal -->
+					<div id="myModal1" class="modal">
+						<span class="close">×</span>
+						<img class="modal-content" id="img02">
+						<div id="caption"></div>
+					</div>   
+					
+					<script>
+					// Get the modal
+					var modal = document.getElementById("myModal1");
+					
+					// Get the image and insert it inside the modal - use its "alt" text as a caption
+					var img = document.getElementById("bigImg");
+					var modalImg = document.getElementById("img02");
+					var captionText = document.getElementById("caption");
+					img.onclick = function(){
+						modal.style.display = "block";
+						modalImg.src = img.src;
+						captionText.innerHTML = img.alt;
+					}
+					
+					// Get the <span> element that closes the modal
+					var span = document.getElementsByClassName("close")[0];
+					
+					// When the user clicks on <span> (x), close the modal
+					span.onclick = function() { 
+					modal.style.display = "none";
+					}
+					</script>	
+		
+
+    </div>
+  </div>
+</div>
+
+
+ 
+
+  
+	
+</section><!-- Main container end -->
+
+<!-- footer Start -->
+<footer class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="footer-manu">
+					<ul>
+						<li><a href="index.html#ABOUT">About SIRAH</a></li>
+						<li><a href="contact.html">Contact us</a></li>
+						<li><a href="https://github.com/SIRAHFF/documentation/releases/" target="_blank">Download</a></li>
+						<li><a href="https://sirahff.github.io/documentation/" target="_blank">Tutorials</a></li>
+						<li><a href="index.html#NEWS">News</a></li>
+					</ul>
+				</div>
+				<p class="copyright mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; SIRAH Forcefield & Biomolecular Simulations Group. All rights reserved. <br> Designed & Developed by <a
+						href="http://www.themefisher.com">Themefisher</a> adapted by Biomolecular Simulations Group.				
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!--Scroll to top-->
+<div id="scroll-to-top" class="scroll-to-top">
+	<span class="icon ion-ios-arrow-up"></span>
+</div>
+
+    <!-- 
+    Essential Scripts
+    =====================================-->
+
+
+    <!-- Main jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- slick Carousel -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <script src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- filter -->
+    <script src="plugins/shuffle/shuffle.min.js"></script>
+    <script src="plugins/SyoTimer/jquery.syotimer.min.js"></script>
+    <!-- Google Map 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+    <script src="plugins/google-map/map.js"></script> -->
+
+    <script src="js/script.js"></script>
+
+    </body>
+
+    </html>
