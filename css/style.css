@@ -7,10 +7,10 @@
 
 @charset "UTF-8";
 /*=== MEDIA QUERY ===*/
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Volkhov:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
 body {
   line-height: 1.65;
-  font-family: "Roboto", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -20,7 +20,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Bricolage Grotesque", sans-serif;
 }
 
 h1,
@@ -29,15 +29,16 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
+  font-weight: 600;
 }
 
+/* Modular scale, ratio 1.25 from a 16px body */
 h1 {
-  font-size: 40px;
+  font-size: 31px;
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 25px;
 }
 
 h3 {
@@ -50,7 +51,7 @@ h4 {
 }
 
 h5 {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.7;
   font-weight: bold;
   margin-top: 14px;
@@ -60,16 +61,16 @@ h5 {
 
 p {
   color: #7B7B7B;
-  font-size: 15px;
-  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-family: "IBM Plex Sans", sans-serif;
   line-height: 1.7;
 }
 
 h6 {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
   color: #7B7B7B;
-  font-family: "Roboto", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   text-align: justify;
   /** font-weight: bold; */
 }
@@ -325,15 +326,14 @@ input[type=tel]:focus {
   margin-bottom: 70px;
 }
 .section-title h2 {
-  text-transform: uppercase;
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 600;
   margin-bottom: 20px;
 }
 .section-title p {
   font-style: italic;
   color: #666;
-  font-family: "Volkhov", serif;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 .section-subtitle {
@@ -707,25 +707,101 @@ header .navbar-default .navbar-nav li a:hover {
   color: #000;
 }
 
-/*.sticky {
-  background: rgba(252, 252, 252, 1) !important;
-  position: fixed;
+/* Sticky header
+   Pins to the top at one fixed height: nothing resizes on scroll, so the
+   content below never shifts as the page moves. The is-stuck class still
+   toggles, but now it only draws the rule that separates the header from the
+   content passing under it. Logo sizing lives here rather than inline in each
+   page's markup. */
+.navigation {
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
-  opacity: 1.0; 
+  z-index: 1030;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.navigation.is-stuck {
+  border-bottom-color: #E3E3E3;
+}
+
+/* Reading progress: the hairline below the header doubles as the track,
+   and this fills it. Only shown while pinned, so it appears together with
+   the track rather than floating on its own. Width comes from
+   --read-progress (0-1), set on scroll in js/script.js. */
+.navigation::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
   width: 100%;
-  background: #e8e8e8;
-}*/
+  height: 2px;
+  background: #A60F0F;
+  transform: scaleX(var(--read-progress, 0));
+  transform-origin: left center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.navigation.is-stuck::after {
+  opacity: 1;
+}
+
+/* The banner file carries wide empty margins: inside its 2126x957 canvas the
+   artwork occupies 1812x606 starting at (30, 210), so only 63% of the height
+   is ink. Sized by the file, the mark rendered a third smaller than the logo
+   it replaced. This crops the file down to its artwork, so --logo-width is the
+   width of the mark itself rather than of the padding around it.
+   If the PNG is ever re-exported trimmed, this collapses to width/height. */
+.navigation .navbar-brand {
+  --logo-width: 200px;
+  position: relative;
+  display: block;
+  width: var(--logo-width);
+  height: calc(var(--logo-width) * 606 / 1812);
+  overflow: hidden;
+}
+
+.navigation .navbar-brand img {
+  position: absolute;
+  max-width: none;
+  width: calc(var(--logo-width) * 2126 / 1812);
+  height: auto;
+  left: calc(var(--logo-width) * -30 / 1812);
+  top: calc(var(--logo-width) * -210 / 1812);
+}
+
+/* Keep the opened mobile menu reachable under the pinned header. The nav
+   collapses below the xl breakpoint, so these track 1200 and not 992. */
+@media (max-width: 1199.98px) {
+  .navigation .navbar-collapse {
+    max-height: calc(100vh - 88px);
+    overflow-y: auto;
+  }
+}
+
+/* In-page anchors (#NEWS, #ABOUT) must clear the pinned header */
+a[name] {
+  scroll-margin-top: 104px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation,
+  .navigation::after {
+    transition: none;
+  }
+}
 
 .navigation {
   background: #fff;
-  padding: 20px 0;
+  /* With the logo cropped to its artwork the frame can close in: 10 + 67 + 10. */
+  padding: 10px 0;
 }
 .navigation .navbar {
   margin-bottom: 0px;
   border: 0px;
-}
-.navigation .navbar-brand {
-  padding-top: 5px;
 }
 .navigation .navbar-toggler {
   font-size: 36px;
@@ -739,9 +815,9 @@ header .navbar-default .navbar-nav li a:hover {
   border: 0px;
 }
 .navigation .navbar .navbar-nav {
-  padding-top: 10px;
+  padding-top: 0;
 }
-@media (max-width: 992px) {
+@media (max-width: 1199.98px) {
   .navigation .navbar .navbar-nav {
     text-align: center;
   }
@@ -751,7 +827,6 @@ header .navbar-default .navbar-nav li a:hover {
   padding: 10px 15px;
   font-weight: 700;
   font-size: 15px;
-  text-transform: uppercase;
   transition: 0.3s;
 }
 .navigation .navbar .navbar-nav > li > a:hover, .navigation .navbar .navbar-nav > li > a:focus {
@@ -768,7 +843,7 @@ header .navbar-default .navbar-nav li a:hover {
   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.08);
   padding: 0;
 }
-@media (max-width: 992px) {
+@media (max-width: 1199.98px) {
   .navigation .navbar .dropdown-menu {
     text-align: center;
     float: left !important;
@@ -827,7 +902,7 @@ header .navbar-default .navbar-nav li a:hover {
   font-size: 14px;
   font-weight: 500;
 }
-@media (max-width: 992px) {
+@media (max-width: 1199.98px) {
   .dropdown-item {
     padding: 0.6rem 1.5rem;
   }
@@ -854,7 +929,7 @@ ul.dropdown-menu li {
   padding-left: 0px !important;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .dropdown-menu {
     transition: all 0.2s ease-in, visibility 0s linear 0.2s, transform 0.2s linear;
     display: block;
@@ -896,23 +971,23 @@ ul.dropdown-menu li {
   text-align: center;
 }
 .slider .block h1 {
-  font-weight: 100;
-  font-size: 45px;
-  line-height: 60px;
-  letter-spacing: 10px;
+  font-weight: 600;
+  font-size: 39px;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
   padding-bottom: 15px;
   text-transform: uppercase;
 }
 @media (max-width: 992px) {
   .slider .block h1 {
-    font-size: 36px;
-    line-height: 46px;
+    font-size: 32px;
+    line-height: 1.15;
   }
 }
 @media (max-width: 768px) {
   .slider .block h1 {
-    font-size: 32px;
-    line-height: 42px;
+    font-size: 28px;
+    line-height: 1.15;
   }
 }
 .slider .block p {
@@ -1037,25 +1112,29 @@ ul.dropdown-menu li {
   margin-bottom: 0;
 }
 
+/* Tinted at every width. The grey used to appear only below 768px, where the
+   theme dropped the background image so the text stayed readable; with that
+   image gone the breakpoint only made the section change colour as the window
+   resized. #F5F5F5 is the same grey as the top bar and the footer, so the page
+   divides on one token rather than three near-whites. */
 .feature {
-  background: url("../img/featue-bg.jpg");
-  background-position: 50% 94px;
   display: block;
   position: relative;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background-color: #F5F5F5;
   padding: 80px 0;
-}
-@media (max-width: 768px) {
-  .feature {
-    background-image: none !important;
-    background-color: #F2F2F2 !important;
-  }
 }
 .feature h2 {
   margin-bottom: 20px;
+}
+
+/* The shared 70px below the heading collapses with the h2's own 20px and wins,
+   which pushed the text column 53px past the figure beside it. Zeroing it hands
+   the spacing back to the h2. The negative top is optical: the h2's box is level
+   with the figure, but the letterforms start a few pixels inside it while the
+   figure has a hard edge. */
+.feature .section-title {
+  margin-top: -6px;
+  margin-bottom: 0;
 }
 .feature p {
   color: #8d8f92;
@@ -1177,8 +1256,18 @@ ul.dropdown-menu li {
   cursor: grab;
 }
 
+/* The hero above ends with ~230px of empty background inside its own padding,
+   so a full 80px here read as a gap roughly twice every other section's. The
+   top is trimmed to compensate; the bottom keeps the standard 80px. */
 .testimonial {
-  padding: 80px 0;
+  padding: 45px 0 80px;
+}
+
+/* With the top trimmed, the shared 70px below the heading would leave it
+   closer to the hero than to the carousel it labels. Only this section needs
+   the tighter value; the other sections keep the 70px rhythm. */
+.testimonial .section-title {
+  margin-bottom: 30px;
 }
 .testimonial .block h2 {
   line-height: 27px;
@@ -1203,7 +1292,7 @@ ul.dropdown-menu li {
   font-size: 35px;
 }
 .testimonial .testimonial-carousel p {
-  font-family: "Volkhov", serif;
+  font-family: "IBM Plex Sans", sans-serif;
   line-height: 28px;
   padding-bottom: 20px;
 }
@@ -1214,7 +1303,7 @@ ul.dropdown-menu li {
   display: inline-block;
 }
 .testimonial .testimonial-carousel .user p {
-  font-family: "Roboto", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   padding-bottom: 0;
   margin-top: 6px;
   font-size: 12px;
@@ -2145,12 +2234,6 @@ ul.dropdown-menu li {
   background-attachment: fixed;
 }
 
-.bg-2 {
-  background: url("../images/sirah_box_bg_small.png");
-  background-size: cover;
-  background-attachment: fixed;
-}
-
 .bg-3 {
   background: url("../images/CitingSIRAH.jpg");
   background-size: cover;
@@ -2168,6 +2251,12 @@ ul.dropdown-menu li {
 
 .bg-5 {
   background: url("../images/sirah_box_bg_cut.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.bg-6 {
+  background: url("../images/contactus-4.webp");
   background-size: cover;
   background-attachment: fixed;
 }
@@ -2679,39 +2768,189 @@ ul.dropdown-menu li {
   margin-top: 40px;
 }
 
+/* Footer
+   Brand block on the left (mark, what SIRAH stands for, social), the existing
+   links on the right, and a rule separating those from the two credit lines. */
 .footer {
   background: #F5F5F5;
-  text-align: center;
-  padding: 80px 0;
+  text-align: left;
+  /* #F5F5F5 against the white content sections above is only a 4% step, so on
+     most pages the footer needs this rule to read as a separate band. */
+  border-top: 1px solid #E3E3E3;
+  padding: 44px 0 26px;
 }
+
 .footer p {
   font-size: 13px;
   line-height: 25px;
   color: #919191;
 }
+
 .footer a {
   color: #595959;
 }
-.footer .footer-manu {
-  padding-bottom: 25px;
+
+/* nowrap on purpose: flexbox wraps before it shrinks, so allowing wrap would
+   drop the whole link group below the brand instead of letting its row
+   compress. Stacking is handled by the mobile query below. */
+.footer-top {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  /* flex-start rather than space-between: the links follow the brand at a set
+     distance instead of being flung to the right edge, which lands the row
+     near the middle of the container at desktop widths. */
+  justify-content: flex-start;
+  gap: 24px 56px;
+  padding-bottom: 30px;
 }
-.footer .footer-manu ul {
-  margin: 0px;
-  padding: 0px;
+
+.footer-brand {
+  flex: 0 1 300px;
 }
-.footer .footer-manu ul li {
-  display: inline-block;
-  padding: 10px 20px;
+
+/* The mark already spells SIRAH, so the wordmark adds the product name rather
+   than repeating it. The image is decorative next to that visible text. */
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 14px;
+  color: #333;
+  font-size: 17px;
+  font-weight: 700;
+  transition: color 0.2s ease;
 }
-.footer .footer-manu ul li a {
-  display: inline-block;
+
+.footer-logo img {
+  width: 44px;
+  height: 44px;
+  margin-right: 12px;
+}
+
+.footer-logo:hover,
+.footer-logo:focus-visible {
+  color: #A60F0F;
+  text-decoration: none;
+}
+
+.footer-tagline {
+  margin-bottom: 18px;
+  font-size: 13px;
+  line-height: 1.6;
+  /* Balances the two lines instead of orphaning the last word. Browsers that
+     don't support it simply wrap normally. */
+  text-wrap: balance;
+}
+
+.footer-social {
+  display: flex;
+}
+
+/* 36px targets: comfortably past the 24x24 CSS px WCAG 2.2 AA minimum for
+   pointer targets on the web. */
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-right: 8px;
+  border: 1px solid #E0E0E0;
+  border-radius: 6px;
+  background: #fff;
+  color: #5C5C5C;
+  font-size: 15px;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  background: #A60F0F;
+  border-color: #A60F0F;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* One group of links needs no heading above it. Laid out in a row rather than
+   a column so the footer is no longer five list-items tall; it wraps on
+   narrow screens. */
+/* Shrinkable, so at middling widths the row wraps onto a second line inside
+   this column instead of dropping the whole group below the brand block. */
+.footer-links {
+  flex: 0 1 auto;
+  min-width: 0;
+  padding-top: 12px;
+}
+
+.footer-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links a {
   color: #494949;
+  font-size: 15px;
+  transition: color 0.2s ease;
 }
-.footer .footer-manu ul li a:hover {
-  color: #000;
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: #A60F0F;
 }
-.footer .copyright a {
+
+/* The two credit lines sit side by side when they fit and stack when they
+   don't; the row gap keeps them legible at the widths where they wrap. */
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 32px;
+  padding-top: 24px;
+  border-top: 1px solid #E3E3E3;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.footer .copyright a,
+.footer .footer-credit a {
   font-weight: 600;
+}
+
+@media (max-width: 767.98px) {
+  .footer {
+    padding: 40px 0 24px;
+  }
+  .footer-top {
+    flex-direction: column;
+  }
+  /* In column direction flex-basis sizes the height, so the desktop basis has
+     to be released or the brand block is stretched to 300px tall. */
+  .footer-brand,
+  .footer-links {
+    flex: none;
+  }
+  .footer-links {
+    padding-top: 0;
+  }
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-logo,
+  .footer-social a,
+  .footer-links a {
+    transition: none;
+  }
 }
 
 .scroll-to-top {
@@ -2744,9 +2983,107 @@ ul.dropdown-menu li {
 /* Top Bar
 ================================================== */
 .top-bar {
-  padding: 8px 0;
+  padding: 4px 0;
   background: #F5F5F5;
   position: relative;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Affiliation: the group name carries the weight and the address recedes,
+   so the hierarchy between them is typographic rather than punctuation. */
+.top-affiliation {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  color: #8A8A8A;
+}
+
+/* The group name is what yields when space runs out; the address never
+   truncates, so the one actionable thing in the bar always survives. */
+.top-affiliation .affiliation-group {
+  color: #5C5C5C;
+  font-weight: 600;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.top-affiliation .affiliation-email {
+  flex: none;
+  white-space: nowrap;
+  color: #8A8A8A;
+  margin-left: 18px;
+  transition: color 0.2s ease;
+}
+
+.top-affiliation .affiliation-email:hover,
+.top-affiliation .affiliation-email:focus {
+  color: #A60F0F;
+}
+
+.top-affiliation .affiliation-email i {
+  margin-right: 6px;
+}
+
+.top-bar .team-social-icons {
+  white-space: nowrap;
+}
+
+.top-bar .social-label {
+  color: #8A8A8A;
+  margin-right: 6px;
+}
+
+.top-bar .team-social-icons a {
+  color: #5C5C5C;
+  font-size: 13px;
+  padding: 0 5px;
+  transition: color 0.2s ease;
+}
+
+.top-bar .team-social-icons a:last-child {
+  padding-right: 0;
+}
+
+.top-bar .team-social-icons a:hover,
+.top-bar .team-social-icons a:focus {
+  color: #A60F0F;
+}
+
+/* Below md the address and the label no longer fit on one line. The
+   envelope stays on as an icon-only mailto, so contact is still one tap
+   away and the group name keeps its place. */
+@media (max-width: 767.98px) {
+  .top-affiliation .affiliation-email-text,
+  .top-bar .social-label {
+    display: none;
+  }
+  .top-affiliation .affiliation-email {
+    margin-left: 10px;
+  }
+  .top-affiliation .affiliation-email i {
+    margin-right: 0;
+  }
+  .top-bar .team-social-icons a {
+    padding: 0 4px;
+  }
+  /* Let the icons claim exactly the width they need and give the rest to
+     the affiliation, instead of betting on a fixed column split that only
+     holds at some screen widths. */
+  #top-bar .row {
+    flex-wrap: nowrap;
+  }
+  #top-bar .top-affiliation {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  #top-bar .top-social {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+  }
 }
 
 /* Top info */
@@ -2833,4 +3170,336 @@ ul.top-info li p.info-text {
   padding: 20px;
   list-style: square;
   text-align: justify;
+}
+/* ==========================================================================
+   News carousel
+   A scroll-snap track instead of a slide-at-a-time carousel: it swipes and
+   drags fluidly on touch and trackpad, snapping to whole cards, and the nine
+   items live in one continuous row rather than fixed blocks of three. Every
+   card is the same size, so the row reads as one consistent set no matter how
+   tall each figure happens to be.
+   ========================================================================== */
+.news-carousel {
+  position: relative;
+}
+
+.news-carousel-head {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 18px;
+}
+
+.news-nav {
+  width: 38px;
+  height: 38px;
+  margin-left: 8px;
+  padding: 0;
+  border: 1px solid #D8D8D8;
+  border-radius: 50%;
+  background: #fff;
+  color: #5C5C5C;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.news-nav:hover:not(:disabled),
+.news-nav:focus-visible:not(:disabled) {
+  background: #A60F0F;
+  border-color: #A60F0F;
+  color: #fff;
+}
+
+/* At either end the arrow says so rather than going dead silently */
+.news-nav:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.news-track {
+  display: flex;
+  margin: 0;
+  padding: 0 0 4px;
+  list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+/* The arrows and dots are the affordance; the raw scrollbar would just be noise */
+.news-track::-webkit-scrollbar {
+  display: none;
+}
+
+.news-track:focus-visible {
+  outline: 2px solid #A60F0F;
+  outline-offset: 4px;
+}
+
+.news-card {
+  display: flex;
+  flex: 0 0 calc((100% - 48px) / 3);
+  margin-right: 24px;
+  scroll-snap-align: start;
+}
+
+.news-card:last-child {
+  margin-right: 0;
+}
+
+.news-card-link {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.news-card-link:hover,
+.news-card-link:focus-visible {
+  border-color: #A60F0F;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+}
+
+/* Two lines are reserved so the figures below line up across cards even when
+   one headline is a single word and the next runs long. */
+.news-card-title {
+  min-height: 47px;
+  margin: 0 0 14px;
+  color: #A60F0F;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* The fixed media box is what holds the cards uniform: the figures range from
+   230x240 to 280x195, and contain lets them keep their own proportions without
+   dragging the card height around with them. */
+.news-card-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 170px;
+  margin-bottom: 14px;
+}
+
+.news-card-media img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.news-card-text {
+  margin: 0;
+  color: #7B7B7B;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.news-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.news-dot {
+  width: 7px;
+  height: 7px;
+  margin: 0 4px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #D0D0D0;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.news-dot[aria-current="true"] {
+  background: #A60F0F;
+}
+
+@media (max-width: 991.98px) {
+  .news-card {
+    flex-basis: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .news-card {
+    flex-basis: 100%;
+    margin-right: 16px;
+  }
+  .news-card-media {
+    height: 150px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-track {
+    scroll-behavior: auto;
+  }
+  .news-nav,
+  .news-card-link,
+  .news-dot {
+    transition: none;
+  }
+}
+
+/* The UA default for b/strong is `bolder`, which resolves to 900 inside a
+   600-weight heading. Plex tops out at 700, so that would be a synthesized
+   faux bold; pinning it to 700 keeps it on a real face. */
+b,
+strong {
+  font-weight: 700;
+}
+
+/* Citations carry volume, issue, page-range and year strings. Plex has real
+   tabular figures, so the numerals line up instead of drifting. */
+.publ-ul li,
+.news-card-text {
+  font-variant-numeric: tabular-nums;
+}
+
+/* All-atom vs coarse-grained comparison
+   Two renders of the same DNA at the same camera, wiped against each other so
+   the jump in resolution is the thing you see. Both PNGs are transparent, so
+   the divider rule is what carries the split where the molecule is absent. */
+.cg-compare {
+  margin: 0;
+}
+
+/* Matches the renders' own 16:9, so each figure is shown whole rather than
+   cropped or zoomed. Their background is #F6F6F6, a shade off the section's
+   #F5F5F5, so the frame has no visible edge. */
+.cg-compare-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  /* Deliberately not clipped: each layer clips itself and the images fit the
+     frame exactly, so the only thing overflow would cut is the handle, which
+     would show as a half circle at either end of its travel. */
+  background: #F6F6F6;
+  cursor: ew-resize;
+  /* The browser keeps vertical panning, so dragging sideways moves the seam
+     without stealing the page scroll on touch. */
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* The clip sits on a layer that exactly fills the frame rather than on the
+   image, so the seam tracks the divider whatever the image's own box is. */
+.cg-compare-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.cg-compare-layer img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* The frame owns the pointer; this also stops the native image drag. */
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.cg-compare-top {
+  clip-path: inset(0 calc(100% - var(--cg-pos, 50%)) 0 0);
+}
+
+.cg-compare-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--cg-pos, 50%);
+  width: 2px;
+  margin-left: -1px;
+  background: #A60F0F;
+  pointer-events: none;
+}
+
+/* Marks the seam as something you can take hold of. Decorative: the frame
+   handles the pointer and the range below is the control that carries the
+   value, the keyboard access and the accessible name. */
+.cg-compare-handle {
+  position: absolute;
+  top: 50%;
+  left: var(--cg-pos, 50%);
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  border: 2px solid #A60F0F;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
+  pointer-events: none;
+}
+
+/* While a drag is in flight nothing on the page should highlight, even if the
+   pointer wanders outside the figure. */
+.cg-dragging {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: ew-resize;
+}
+
+/* Two hairlines read as a grip without adding an icon */
+.cg-compare-handle::before,
+.cg-compare-handle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 2px;
+  height: 10px;
+  margin-top: -5px;
+  border-radius: 1px;
+  background: #A60F0F;
+}
+
+.cg-compare-handle::before {
+  left: 8px;
+}
+
+.cg-compare-handle::after {
+  right: 8px;
+}
+
+/* A range input rather than a drag-only handle: it is operable by keyboard and
+   announced by screen readers without any extra wiring. */
+.cg-compare-range {
+  display: block;
+  width: 100%;
+  margin: 14px 0 0;
+  accent-color: #A60F0F;
+  cursor: ew-resize;
+}
+
+.cg-compare-range:focus-visible {
+  outline: 2px solid #A60F0F;
+  outline-offset: 3px;
+}
+
+.cg-compare-legend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  color: #7B7B7B;
+  font-size: 13px;
+}
+
+@media (max-width: 767.98px) {
+  .cg-compare {
+    margin-bottom: 36px;
+  }
 }

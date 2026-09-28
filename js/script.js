@@ -8,21 +8,184 @@
 $(document).ready(function () {
 	'use strict';
 	
-	/**window.onscroll = function() {myFunction()};
+	// Sticky header: compact the header once the top bar has scrolled away,
+	// and fill the rule under it to show how far down the page we are.
+	// Pinning itself is CSS (position: sticky); this drives the two states.
+	var header = document.getElementById('myHeader');
+	if (header) {
+		var topBar = document.getElementById('top-bar');
+		var trigger = topBar ? topBar.offsetHeight : 0;
+		var isStuck = false;
+		var progress = -1;
+		var ticking = false;
 
-	var header = document.getElementById("myHeader");
-	var sticky = header.offsetTop;
+		var updateHeader = function () {
+			ticking = false;
 
-	function myFunction() {
-  		if (window.pageYOffset > sticky) {
-    		header.classList.add("sticky");
-  		} else {
-    		header.classList.remove("sticky");
-  		}
-	} */
+			var shouldStick = window.pageYOffset > trigger;
+			if (shouldStick !== isStuck) {
+				isStuck = shouldStick;
+				header.classList.toggle('is-stuck', isStuck);
+			}
+
+			// Pages shorter than the viewport have nothing to track.
+			var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+			var read = scrollable > 0 ? window.pageYOffset / scrollable : 0;
+			read = Math.min(1, Math.max(0, read));
+			if (read !== progress) {
+				progress = read;
+				header.style.setProperty('--read-progress', read);
+			}
+		};
+
+		// Batch both reads into one frame so scrolling stays cheap.
+		var onScroll = function () {
+			if (!ticking) {
+				ticking = true;
+				window.requestAnimationFrame(updateHeader);
+			}
+		};
+
+		window.addEventListener('scroll', onScroll, { passive: true });
+		window.addEventListener('resize', onScroll, { passive: true });
+		updateHeader();
+	}
 	
+	// All-atom / coarse-grained wipe. The range input carries the value, the
+	// keyboard access and the accessible name; the seam can also be dragged
+	// inside the figure, which is the same action by another means.
+	var cgRange = document.querySelector('.cg-compare-range');
+	if (cgRange) {
+		var cgFigure = cgRange.closest('.cg-compare');
+		var cgFrame = cgFigure.querySelector('.cg-compare-frame');
+
+		var applyCompare = function (pct) {
+			cgFigure.style.setProperty('--cg-pos', pct + '%');
+		};
+
+		var drawCompare = function () {
+			applyCompare(cgRange.value);
+		};
+
+		cgRange.addEventListener('input', drawCompare);
+		drawCompare();
+
+		if (cgFrame && window.PointerEvent) {
+			var cgSeek = function (clientX) {
+				var box = cgFrame.getBoundingClientRect();
+				var pct = ((clientX - box.left) / box.width) * 100;
+				pct = Math.max(0, Math.min(100, pct));
+				// The seam follows the pointer exactly; the range keeps the
+				// rounded value so its thumb and the arrow keys stay in step.
+				applyCompare(pct);
+				cgRange.value = Math.round(pct);
+			};
+
+			var cgOnMove = function (event) {
+				cgSeek(event.clientX);
+			};
+
+			var cgOnUp = function () {
+				window.removeEventListener('pointermove', cgOnMove);
+				window.removeEventListener('pointerup', cgOnUp);
+				window.removeEventListener('pointercancel', cgOnUp);
+				document.body.classList.remove('cg-dragging');
+			};
+
+			cgFrame.addEventListener('pointerdown', function (event) {
+				// Before anything else: this is what stops the browser starting
+				// a text selection or an image drag from inside the figure.
+				event.preventDefault();
+
+				// Tracking on window rather than capturing the pointer, so the
+				// drag survives leaving the frame even where setPointerCapture
+				// refuses the pointer.
+				window.addEventListener('pointermove', cgOnMove);
+				window.addEventListener('pointerup', cgOnUp);
+				window.addEventListener('pointercancel', cgOnUp);
+				document.body.classList.add('cg-dragging');
+
+				cgSeek(event.clientX);
+			});
+		}
+	}
+
+	// News carousel: the track itself scrolls and snaps in CSS. This only wires
+	// the arrows and dots to it, and reflects scroll position back into them.
+	var newsTrack = document.getElementById('newsTrack');
+	if (newsTrack) {
+		var newsCards = Array.prototype.slice.call(newsTrack.querySelectorAll('.news-card'));
+		var newsDots = document.getElementById('newsDots');
+		var newsNavs = Array.prototype.slice.call(document.querySelectorAll('[data-news-scroll]'));
+
+		// Card offsets are read relative to the track's own content box.
+		var cardOffset = function (card) {
+			return card.offsetLeft - newsCards[0].offsetLeft;
+		};
+
+		newsNavs.forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				var dir = btn.getAttribute('data-news-scroll') === 'next' ? 1 : -1;
+				// One viewport of cards, so it follows the breakpoint in use.
+				newsTrack.scrollBy({ left: dir * newsTrack.clientWidth, behavior: 'smooth' });
+			});
+		});
+
+		var dots = newsCards.map(function (card, i) {
+			var dot = document.createElement('button');
+			dot.type = 'button';
+			dot.className = 'news-dot';
+			dot.setAttribute('aria-label', 'Show news item ' + (i + 1));
+			dot.addEventListener('click', function () {
+				newsTrack.scrollTo({ left: cardOffset(card), behavior: 'smooth' });
+			});
+			newsDots.appendChild(dot);
+			return dot;
+		});
+
+		var syncNews = function () {
+			var x = newsTrack.scrollLeft;
+			var max = newsTrack.scrollWidth - newsTrack.clientWidth;
+
+			var current = 0;
+			var closest = Infinity;
+			newsCards.forEach(function (card, i) {
+				var d = Math.abs(cardOffset(card) - x);
+				if (d < closest) {
+					closest = d;
+					current = i;
+				}
+			});
+
+			dots.forEach(function (dot, i) {
+				dot.setAttribute('aria-current', i === current ? 'true' : 'false');
+			});
+
+			newsNavs.forEach(function (btn) {
+				var isNext = btn.getAttribute('data-news-scroll') === 'next';
+				btn.disabled = isNext ? x >= max - 1 : x <= 1;
+			});
+		};
+
+		var newsTicking = false;
+		newsTrack.addEventListener('scroll', function () {
+			if (!newsTicking) {
+				newsTicking = true;
+				window.requestAnimationFrame(function () {
+					newsTicking = false;
+					syncNews();
+				});
+			}
+		}, { passive: true });
+
+		window.addEventListener('resize', syncNews, { passive: true });
+		syncNews();
+	}
+
 	// navbarDropdown
-	if ($(window).width() < 992) {
+	// Matches the navbar's xl collapse point: below 1200px the menu is a
+	// hamburger, so the dropdown has to open on click rather than hover.
+	if ($(window).width() < 1200) {
 		$('.navigation .dropdown-toggle').on('click', function () {
 			$(this).siblings('.dropdown-menu').animate({
 				height: 'toggle'

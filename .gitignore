@@ -1,0 +1,28 @@
+# Operating system
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python bytecode, from .claude/serve.py
+__pycache__/
+*.py[cod]
+
+# Claude Code: launch.json and serve.py are shared on purpose, but the local
+# settings file records one person's permission choices on one machine.
+.claude/settings.local.json
+
+# Saved copies made while editing. Keep them out of the repository so an
+# in-progress backup is never mistaken for the live page.
+*.bak
+*.orig
+*.rej
