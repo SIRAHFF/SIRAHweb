@@ -25,7 +25,12 @@
   <meta name="theme-name" content="airspace">
   <meta name="generator" content="Themefisher Airspace Template v1.0">
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/ico-rojo-blanco.png" />
+  <!-- <link rel="shortcut icon" type="image/x-icon" href="images/ico-rojo-blanco.png" /> -->
+
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icos/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/icos/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/icos/favicon-16x16.png">
+  <link rel="manifest" href="images/icos/site.webmanifest">
 
 
   <!-- bootstrap.min css -->
@@ -165,32 +170,35 @@
 
 	<div id="top-bar" class="top-bar">
         <div class="container">
-          <div class="row">
-              <div class="col-lg-8 col-md-8">
+          <div class="row align-items-center">
+              <div class="col-8 col-md-8 top-affiliation">
+                <span class="affiliation-group">Biomolecular Simulations Group</span><a class="affiliation-email" href="mailto:sirahff@gmail.com" title="Email the SIRAH team"><i class="fa-regular fa-envelope"></i><span class="affiliation-email-text">sirahff@gmail.com</span></a>
               </div>
-              <!--/ Top info end -->
-  
-               <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
-			    <div class="team-social-icons">
-					<a title="Twitter" href="https://x.com/SIRAHForcefield" target="_blank">
-						<i class="fa-brands fa-x-twitter" style="font-size: 1.1em;"></i>  <!-- <i class="fab fa-twitter" style="font-size: 1.1em;"></i> -->
-                    </a>
-                    <a title="YouTube" href="https://www.youtube.com/channel/UCLK25yNsJPlej_fEKdLc1qw" target="_blank">
-						<i class="fab fa-youtube" style="font-size: 1.1em;"></i>
-                    </a>
-                    <a title="Github" href="https://github.com/SIRAHFF" target="_blank">
-                        <i class="fab fa-github" style="font-size: 1.1em;"></i>
-                    </a>
-					<a title="GScholar" href="https://scholar.google.com.uy/citations?hl=es&user=Rqr6Jw4AAAAJ" target="_blank">
-                        <i class="fa-brands fa-google-scholar" style="font-size: 1.1em;"></i> <!-- <i class="fab fa-google" style="font-size: 1.1em;"></i> -->
-                    </a>
+              <!--/ Affiliation end -->
+
+              <div class="col-4 col-md-4 top-social text-right">
+			   <div class="team-social-icons">
+			           <span class="social-label">Follow us</span>
+				       <a title="Twitter" href="https://x.com/SIRAHForcefield" target="_blank">
+							<i class="fa-brands fa-x-twitter"></i>
+                       </a>
+                       <a title="YouTube" href="https://www.youtube.com/channel/UCLK25yNsJPlej_fEKdLc1qw" target="_blank">
+                          <i class="fab fa-youtube"></i>
+                       </a>
+                       <a title="Github" href="https://github.com/SIRAHFF" target="_blank">
+                         <i class="fab fa-github"></i>
+                       </a>
+					   <a title="GScholar" href="https://scholar.google.com.uy/citations?hl=es&user=Rqr6Jw4AAAAJ" target="_blank">
+                         <i class="fa-brands fa-google-scholar"></i>
+                       </a>
                  </div>
-              </div>
               </div>
               <!--/ Top social end -->
           </div>
           <!--/ Content row end -->
         </div>
+        <!--/ Container end -->
+    </div>
         <!--/ Container end -->
     </div>
     <!--/ Topbar end -->
@@ -200,9 +208,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<nav class="navbar navbar-expand-lg p-0">
+				<nav class="navbar navbar-expand-xl p-0">
 					<a class="navbar-brand" href="index.html">
-						<img src="images/sirah-logo-novo-4.png" alt="Logo" style="width: 210px; height: 70px;">
+						<img src="images/banner-sirah-simple.png" alt="SIRAH — Southamerican Initiative for a Rapid and Accurate Hamiltonian">
 					</a>
 
 					<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
@@ -214,7 +222,7 @@
 							<li class="nav-item active">
 								<a class="nav-link" href="index.html">Home</a>
 							</li>
-							<li class="nav-item @@news"><a class="nav-link" href="index.html#NEWS">NEWS</a></li>
+							<li class="nav-item @@news"><a class="nav-link" href="index.html#NEWS">News</a></li>
 							<li class="nav-item @@news"><a class="nav-link" href="index.html#ABOUT">About</a></li>
 							<li class="nav-item dropdown @@download">
 								<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
@@ -439,21 +447,43 @@
 <!-- footer Start -->
 <footer class="footer">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="footer-manu">
-					<ul>
-						<li><a href="index.html#ABOUT">About SIRAH</a></li>
-						<li><a href="contact.html">Contact us</a></li>
-						<li><a href="https://github.com/SIRAHFF/documentation/releases/" target="_blank">Download</a></li>
-						<li><a href="https://sirahff.github.io/documentation/" target="_blank">Tutorials</a></li>
-						<li><a href="index.html#NEWS">News</a></li>
-					</ul>
+		<div class="footer-top">
+			<div class="footer-brand">
+				<a class="footer-logo" href="index.html">
+					<img src="images/icos/android-chrome-192x192.png" alt="" width="44" height="44">
+					<span>SIRAH Force Field</span>
+				</a>
+				<p class="footer-tagline">Southamerican Initiative for a Rapid and Accurate Hamiltonian</p>
+				<div class="footer-social">
+					<a href="https://x.com/SIRAHForcefield" target="_blank" rel="noopener" aria-label="SIRAH on X">
+						<i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+					</a>
+					<a href="https://www.youtube.com/channel/UCLK25yNsJPlej_fEKdLc1qw" target="_blank" rel="noopener" aria-label="SIRAH on YouTube">
+						<i class="fab fa-youtube" aria-hidden="true"></i>
+					</a>
+					<a href="https://github.com/SIRAHFF" target="_blank" rel="noopener" aria-label="SIRAH on GitHub">
+						<i class="fab fa-github" aria-hidden="true"></i>
+					</a>
+					<a href="https://scholar.google.com.uy/citations?hl=es&user=Rqr6Jw4AAAAJ" target="_blank" rel="noopener" aria-label="SIRAH on Google Scholar">
+						<i class="fa-brands fa-google-scholar" aria-hidden="true"></i>
+					</a>
 				</div>
-				<p class="copyright mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; SIRAH Forcefield & Biomolecular Simulations Group. All rights reserved. <br> Designed & Developed by <a
-						href="http://www.themefisher.com">Themefisher</a> adapted by Biomolecular Simulations Group.				
-				</p>
 			</div>
+
+			<nav class="footer-links" aria-label="Footer">
+				<ul>
+					<li><a href="index.html#NEWS">News</a></li>
+					<li><a href="index.html#ABOUT">About SIRAH</a></li>
+					<li><a href="https://github.com/SIRAHFF/documentation/releases/" target="_blank" rel="noopener">Download</a></li>
+					<li><a href="https://sirahff.github.io/documentation/" target="_blank" rel="noopener">Tutorials</a></li>
+					<li><a href="contact.html">Contact us</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="footer-bottom">
+			<p class="copyright">Copyright <script>document.write(new Date().getFullYear())</script> &copy; SIRAH Forcefield &amp; Biomolecular Simulations Group. All rights reserved.</p>
+			<p class="footer-credit">Designed &amp; Developed by <a href="http://www.themefisher.com" target="_blank" rel="noopener">Themefisher</a>, adapted by Biomolecular Simulations Group.</p>
 		</div>
 	</div>
 </footer>

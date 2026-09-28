@@ -42,7 +42,6 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/icos/favicon-16x16.png">
   <link rel="manifest" href="images/icos/site.webmanifest">
 
-
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <!-- Ionic Icon Css -->
@@ -67,24 +66,26 @@
 
 	<div id="top-bar" class="top-bar">
         <div class="container">
-          <div class="row">
-              <div class="col-lg-8 col-md-8">
+          <div class="row align-items-center">
+              <div class="col-8 col-md-8 top-affiliation">
+                <span class="affiliation-group">Biomolecular Simulations Group</span><a class="affiliation-email" href="mailto:sirahff@gmail.com" title="Email the SIRAH team"><i class="fa-regular fa-envelope"></i><span class="affiliation-email-text">sirahff@gmail.com</span></a>
               </div>
-              <!--/ Top info end -->
-  
-              <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
+              <!--/ Affiliation end -->
+
+              <div class="col-4 col-md-4 top-social text-right">
 			   <div class="team-social-icons">
+			           <span class="social-label">Follow us</span>
 				       <a title="Twitter" href="https://x.com/SIRAHForcefield" target="_blank">
-							<i class="fa-brands fa-x-twitter" style="font-size: 1.1em;"></i>  <!-- <i class="fab fa-twitter" style="font-size: 1.1em;"></i> -->
+							<i class="fa-brands fa-x-twitter"></i>
                        </a>
                        <a title="YouTube" href="https://www.youtube.com/channel/UCLK25yNsJPlej_fEKdLc1qw" target="_blank">
-                          <i class="fab fa-youtube" style="font-size: 1.1em;"></i>
+                          <i class="fab fa-youtube"></i>
                        </a>
                        <a title="Github" href="https://github.com/SIRAHFF" target="_blank">
-                         <i class="fab fa-github" style="font-size: 1.1em;"></i>
+                         <i class="fab fa-github"></i>
                        </a>
 					   <a title="GScholar" href="https://scholar.google.com.uy/citations?hl=es&user=Rqr6Jw4AAAAJ" target="_blank">
-                         <i class="fa-brands fa-google-scholar" style="font-size: 1.1em;"></i> <!-- <i class="fab fa-google" style="font-size: 1.1em;"></i> -->
+                         <i class="fa-brands fa-google-scholar"></i>
                        </a>
                  </div>
               </div>
@@ -101,9 +102,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<nav class="navbar navbar-expand-lg p-0">
+				<nav class="navbar navbar-expand-xl p-0">
 					<a class="navbar-brand" href="index.html">
-						<img src="images/sirah-logo-novo-4.png" alt="Logo" style="width: 210px; height: 70px;">
+						<img src="images/banner-sirah-simple.png" alt="SIRAH — Southamerican Initiative for a Rapid and Accurate Hamiltonian">
 					</a>
 
 					<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
@@ -115,7 +116,7 @@
 							<li class="nav-item active">
 								<a class="nav-link" href="index.html">Home</a>
 							</li>
-							<li class="nav-item @@news"><a class="nav-link" href="#NEWS">NEWS</a></li>
+							<li class="nav-item @@news"><a class="nav-link" href="#NEWS">News</a></li>
 							<li class="nav-item @@news"><a class="nav-link" href="#ABOUT">About</a></li>
 							<li class="nav-item dropdown @@download">
 								<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
@@ -166,206 +167,101 @@
       </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <h3 class="mb-3"> </h3> <!--<h3 class="mb-3">Carousel cards title </h3>-->
+        <div class="news-carousel">
+            <div class="news-carousel-head">
+                <button class="news-nav" type="button" data-news-scroll="prev" aria-controls="newsTrack" aria-label="Previous news">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </button>
+                <button class="news-nav" type="button" data-news-scroll="next" aria-controls="newsTrack" aria-label="Next news">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
             </div>
-            <div class="col-6 text-right" >
-                <a class="btn btn-primary btn-warning mb-3 mr-1" href="#carouselpapers" role="button" data-slide="prev">
-                    <i class="fa fa-arrow-left"></i>
-                </a>
-                <a class="btn btn-primary btn-warning mb-3" href="#carouselpapers" role="button" data-slide="next">
-                    <i class="fa fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="col-12">
-                <div id="carouselpapers" class="carousel slide" data-ride="carousel">			    
-                    <div class="carousel-inner">
-					
-					<!-- Start First Block -->
-                        <div class="carousel-item active">
-                            <div class="row">
-							
-							<!-- Begin 1st card first Block -->
-								<div class="col-md-4 mb-3">								
-                                    <div class="card h-100" style="overflow: auto;">
-										<!-- Modify LINK here -->
-										<a href="https://doi.org/10.1039/d6cp01408a" target="_blank">
-										<!-- Modify TITLE here -->
-										<h5 class="card-title">Dissecting the impact of charge distribution on antibacterial peptides using SIRAH</h5>
-										<!-- Modify FIGURE here -->
-                                        <img class="img-fluid" alt="100%x280" src="images/graphical_abstracts/PhysChemChemPhys_26.png" style="height:165px; width: 250px;  display: block; margin: 0 auto;" >
-                                        <div class="card-body">  
-										<!-- Modify DESCRIPTION here -->										
-                                            <p class="card-text">Frigini et al., Phys. Chem. Chem. Phys., 2026. <br> We report here a theoretical and experimental study demonstrating the key influence of net positive atomic charges on small peptides with antimicrobial activity.</p>
-                                        </div></a>
-                                    </div>
-                                </div>	
-							<!-- End 1st card first Block -->
-							
-							<!-- Begin 2nd card first Block -->
-								<div class="col-md-4 mb-3">								
-                                    <div class="card h-100" style="overflow: auto;">
-										<!-- Modify LINK here -->
-										<a href="https://pubs.rsc.org/NR/article-lookup/doi/10.1039/D6NR01523A" target="_blank">
-										<!-- Modify TITLE here -->
-										<h5 class="card-title">We got BioNano!</h5>
-										<!-- Modify FIGURE here -->
-                                        <img class="img-fluid" alt="100%x280" src="images/graphical_abstracts/BioNano_26.png" style="height:240px; width: 230px;  display: block; margin: 0 auto;" >
-                                        <div class="card-body">  
-										<!-- Modify DESCRIPTION here -->										
-                                            <p class="card-text">Barrera et al., Nanoscale, 2026. <br> CG simulations predicted the structure of Tetraphenylalanine peptides amyloid fibers. See the Nanoscale paper here.</p>
-                                        </div></a>
-                                    </div>
-                                </div>						
-													
-							<!-- Begin 2nd card first Block -->	
-							
-							<!-- Begin 3rd card first Block -->	
-								<div class="col-md-4 mb-3">								
-                                    <div class="card h-100" style="overflow: auto;">
-										<!-- Modify LINK here -->
-										<a href="https://www.youtube.com/watch?v=0Mbr-nWzYyw" target="_blank">
-										<!-- Modify TITLE here -->
-										<h5 class="card-title">SIRAH Force Field in XR/VR!</h5>
-										<!-- Modify FIGURE here -->
-                                        <img class="img-fluid" alt="100%x280" src="images/graphical_abstracts/nanome_vr.png" style="height:195px; width: 280px;  display: block; margin: 0 auto;" >
-                                        <div class="card-body">  
-										<!-- Modify DESCRIPTION here -->										
-                                            <p class="card-text">We're taking SIRAHFF to the next level! Using NANOME v2.0, we dive into Virtual Reality to explore the intricate features of our coarse-grained force field to explore MD in immersive and mixed reality.</p>
-                                        </div></a>
-                                    </div>
-                                </div>		
-							
-							<!-- End 3nd card first Block -->	
-                            </div>
-                        </div>
-					<!-- End First Block -->
-					
-					<!-- Start Second Block -->
-                        <div class="carousel-item">
-                            <div class="row">
-							
-							<!-- Begin 1st card second Block -->
-								<div class="col-md-4 mb-3">								
-                                    <div class="card h-100" style="overflow: auto;">
-										<!-- Modify LINK here -->
-										<a href="https://pubs.acs.org/toc/apcach/6/4#" target="_blank">
-										<!-- Modify TITLE here -->
-										<h5 class="card-title">Cover in ACS Chemical Physics Au!</h5>
-										<!-- Modify FIGURE here -->
-                                        <img class="img-fluid" alt="100%x280" src="images/graphical_abstracts/CoverJCPGold.jpg" style="height:240px; width: 230px;  display: block; margin: 0 auto;" >
-                                        <div class="card-body">  
-										<!-- Modify DESCRIPTION here -->										
-                                            <p class="card-text">Collaborative South American effort in Computational Virology gets cover image. Read more about the Lipid Architecture of Zika Virus <object><a href="https://pubs.acs.org/doi/10.1021/acsphyschemau.5c00113" target="_blank">here</a></object>.</p>
-                                        </div></a>
-                                    </div>
-                                </div>			
-							
-								
-							<!-- End 1st card second Block -->
-							
-							<!-- Begin 2nd card second Block -->
-								<div class="col-md-4 mb-3">								
-                                    <div class="card h-100" style="overflow: auto;">
-										<!-- Modify LINK here -->
-										<a href="https://pages.cnpem.br/spde/" target="_blank">
-										<!-- Modify TITLE here -->
-										<h5 class="card-title">New Modeling Symposium in Brazil!</h5>
-										<!-- Modify FIGURE here -->
-                                        <img class="img-fluid" alt="100%x280" src="images/graphical_abstracts/spde_26.png" style="height:195px; width: 280px;  display: block; margin: 0 auto;" >
-                                        <div class="card-body">  
-										<!-- Modify DESCRIPTION here -->										
-                                            <p class="card-text">The 2nd Symposium on Protein Design and Engineering (SPDE) is taking place October 5–8, 2026, in Campinas, Brazil. This event brings together researchers, industry pioneers, and emerging scientists to explore protein design. Learn more and register.</p>
-                                        </div></a>
-                                    </div>
-                                </div>	
-							
-							<!-- End 2nd card second Block -->
-							
-							<!-- Begin 3rd card second Block -->
-								<div class="col-md-4 mb-3">								
-                                    <div class="card h-100" style="overflow: auto;">
-										<!-- Modify LINK here -->
-										<a href="https://pubs.acs.org/doi/10.1021/acsphyschemau.5c00113" target="_blank">
-										<!-- Modify TITLE here -->
-										<h5 class="card-title">Just accepted paper in <br> Computational Virology!</h5>
-										<!-- Modify FIGURE here -->
-                                        <img class="img-fluid" alt="100%x280" src="images/graphical_abstracts/acs_physchem_26.png" style="height:195px; width: 280px;  display: block; margin: 0 auto;" >
-                                        <div class="card-body">  
-										<!-- Modify DESCRIPTION here -->										
-                                            <p class="card-text">Tavares et al., ACS Phys. Chem. Au, 2026. <br> In this just accepted paper, SIRAH molecular dynamics simulations of the Zika virus were analyzed to characterize lipid organization inside the virus. </p>
-                                        </div></a>
-                                    </div>
-                                </div>	
-							<!-- End 3rd card second Block -->
-					<!-- End Second Block -->
-					        </div>
-                        </div>
-						
-					<!-- Start Third Block -->					
-                        <div class="carousel-item">
-                            <div class="row">
-							
-							<!-- Begin 1st card third Block -->
-								<div class="col-md-4 mb-3">								
-                                    <div class="card h-100" style="overflow: auto;">
-										<!-- Modify LINK here -->
-										<a href="https://www.sciencedirect.com/science/article/pii/S1047847725001108" target="_blank">
-										<!-- Modify TITLE here -->
-										<h5 class="card-title">SIRAH FF is the paper of the year!</h5>
-										<!-- Modify FIGURE here -->
-                                        <img class="img-fluid" alt="100%x280" src="images/graphical_abstracts/JSB_paperoftheyear.png" style="height:185px; width: 210px;  display: block; margin: 0 auto;" >
-                                        <div class="card-body">  
-										<!-- Modify DESCRIPTION here -->										
-                                            <p class="card-text">Our paper <em>"The SIRAH force field: A suite for simulations of complex biological systems at the coarse-grained and multiscale levels"</em> by Klein at al. was honored as the Paper of the Year by the Journal of Structural Biology.</p>
-                                        </div></a>
-                                    </div>
-                                </div>	
- 
-							<!-- End 1st card third Block -->
-							
-							<!-- Begin 2nd card third Block -->
-								<div class="col-md-4 mb-3">								
-                                    <div class="card h-100" style="overflow: auto;">
-										<!-- Modify LINK here -->
-										<a href="https://noticias.unab.cl/doctorado-en-fisicoquimica-molecular-unab-realizo-el-taller-herramientas-avanzadas-en-simulacion-biomolecular/" target="_blank">
-										<!-- Modify TITLE here -->
-										<h5 class="card-title">Taller de SIRAH/PACKMOL en la UNAB</h5>
-										<!-- Modify FIGURE here -->
-                                        <img class="img-fluid" alt="100%x280" src="images/graphical_abstracts/fotoportada.jpg" style="height:175px; width: 250px;  display: block; margin: 0 auto;" >
-                                        <div class="card-body">  
-										<!-- Modify DESCRIPTION here -->										
-                                            <p class="card-text">La Universidad Andrés Bello (Chile) realizó el taller “Herramientas Avanzadas en Simulación Biomolecular” que contó con la participación de los investigadores Sergio Pantano, del IPMont (Uruguay), y Leandro Martínez, de la Unicamp (Brasil).</p>
-                                        </div></a>
-                                    </div>
-                                </div>	
- 							<!-- End 2nd card third Block -->
-							
-							<!-- Begin 3rd card third Block -->
-								<div class="col-md-4 mb-3">								
-                                    <div class="card h-100" style="overflow: auto;">
-										<!-- Modify LINK here -->
-										<a href="https://pubs.acs.org/doi/10.1021/acs.jcim.5c01226" target="_blank">
-										<!-- Modify TITLE here -->
-										<h5 class="card-title">SIRAH Tools GUI Paper is here!</h5>
-										<!-- Modify FIGURE here -->
-                                        <img class="img-fluid" alt="100%x280" src="images/graphical_abstracts/sirah_tools_logo_small.png">
-                                        <div class="card-body">  
-										<!-- Modify DESCRIPTION here -->										
-                                            <p class="card-text">Ballesteros-Casallas et al., JCIM 2025. SIRAH Tools GUI is a graphical user interface that integrates with VMD and extends the capabilities of the SIRAH Tools plugin for analyzing molecular simulations performed with the SIRAH force field.</p>
-                                        </div></a>
-                                    </div>
-                                </div>
-							<!-- End 3rd card third Block -->					
 
+            <ul class="news-track" id="newsTrack" tabindex="0" role="group" aria-label="News and latest publications">
+                    <li class="news-card">
+                        <a class="news-card-link" href="https://doi.org/10.1039/d6cp01408a" target="_blank" rel="noopener">
+                            <h5 class="news-card-title">Dissecting the impact of charge distribution on antibacterial peptides using SIRAH</h5>
+                            <div class="news-card-media">
+                                <img src="images/graphical_abstracts/PhysChemChemPhys_26.png" alt="">
                             </div>
-                        </div>
-					 <!-- End Third Block -->
-					
-                    </div>
-                </div>
-            </div>
+                            <p class="news-card-text">Frigini et al., Phys. Chem. Chem. Phys., 2026. <br> We report here a theoretical and experimental study demonstrating the key influence of net positive atomic charges on small peptides with antimicrobial activity.</p>
+                        </a>
+                    </li>
+                    <li class="news-card">
+                        <a class="news-card-link" href="https://pubs.rsc.org/NR/article-lookup/doi/10.1039/D6NR01523A" target="_blank" rel="noopener">
+                            <h5 class="news-card-title">We got BioNano!</h5>
+                            <div class="news-card-media">
+                                <img src="images/graphical_abstracts/BioNano_26.png" alt="">
+                            </div>
+                            <p class="news-card-text">Barrera et al., Nanoscale, 2026. <br> CG simulations predicted the structure of Tetraphenylalanine peptides amyloid fibers. See the Nanoscale paper here.</p>
+                        </a>
+                    </li>
+                    <li class="news-card">
+                        <a class="news-card-link" href="https://www.youtube.com/watch?v=0Mbr-nWzYyw" target="_blank" rel="noopener">
+                            <h5 class="news-card-title">SIRAH Force Field in XR/VR!</h5>
+                            <div class="news-card-media">
+                                <img src="images/graphical_abstracts/nanome_vr.png" alt="">
+                            </div>
+                            <p class="news-card-text">We're taking SIRAHFF to the next level! Using NANOME v2.0, we dive into Virtual Reality to explore the intricate features of our coarse-grained force field to explore MD in immersive and mixed reality.</p>
+                        </a>
+                    </li>
+                    <li class="news-card">
+                        <a class="news-card-link" href="https://pubs.acs.org/toc/apcach/6/4#" target="_blank" rel="noopener">
+                            <h5 class="news-card-title">Cover in ACS Chemical Physics Au!</h5>
+                            <div class="news-card-media">
+                                <img src="images/graphical_abstracts/CoverJCPGold.jpg" alt="">
+                            </div>
+                            <p class="news-card-text">Collaborative South American effort in Computational Virology gets cover image. Read more about the Lipid Architecture of Zika Virus <object><a href="https://pubs.acs.org/doi/10.1021/acsphyschemau.5c00113" target="_blank">here</a></object>.</p>
+                        </a>
+                    </li>
+                    <li class="news-card">
+                        <a class="news-card-link" href="https://pages.cnpem.br/spde/" target="_blank" rel="noopener">
+                            <h5 class="news-card-title">New Modeling Symposium in Brazil!</h5>
+                            <div class="news-card-media">
+                                <img src="images/graphical_abstracts/spde_26.png" alt="">
+                            </div>
+                            <p class="news-card-text">The 2nd Symposium on Protein Design and Engineering (SPDE) is taking place October 5–8, 2026, in Campinas, Brazil. This event brings together researchers, industry pioneers, and emerging scientists to explore protein design. Learn more and register.</p>
+                        </a>
+                    </li>
+                    <li class="news-card">
+                        <a class="news-card-link" href="https://pubs.acs.org/doi/10.1021/acsphyschemau.5c00113" target="_blank" rel="noopener">
+                            <h5 class="news-card-title">Just accepted paper in Computational Virology!</h5>
+                            <div class="news-card-media">
+                                <img src="images/graphical_abstracts/acs_physchem_26.png" alt="">
+                            </div>
+                            <p class="news-card-text">Tavares et al., ACS Phys. Chem. Au, 2026. <br> In this just accepted paper, SIRAH molecular dynamics simulations of the Zika virus were analyzed to characterize lipid organization inside the virus.</p>
+                        </a>
+                    </li>
+                    <li class="news-card">
+                        <a class="news-card-link" href="https://www.sciencedirect.com/science/article/pii/S1047847725001108" target="_blank" rel="noopener">
+                            <h5 class="news-card-title">SIRAH FF is the paper of the year!</h5>
+                            <div class="news-card-media">
+                                <img src="images/graphical_abstracts/JSB_paperoftheyear.png" alt="">
+                            </div>
+                            <p class="news-card-text">Our paper <em>"The SIRAH force field: A suite for simulations of complex biological systems at the coarse-grained and multiscale levels"</em> by Klein at al. was honored as the Paper of the Year by the Journal of Structural Biology.</p>
+                        </a>
+                    </li>
+                    <li class="news-card">
+                        <a class="news-card-link" href="https://noticias.unab.cl/doctorado-en-fisicoquimica-molecular-unab-realizo-el-taller-herramientas-avanzadas-en-simulacion-biomolecular/" target="_blank" rel="noopener">
+                            <h5 class="news-card-title">Taller de SIRAH/PACKMOL en la UNAB</h5>
+                            <div class="news-card-media">
+                                <img src="images/graphical_abstracts/fotoportada.jpg" alt="">
+                            </div>
+                            <p class="news-card-text">La Universidad Andrés Bello (Chile) realizó el taller “Herramientas Avanzadas en Simulación Biomolecular” que contó con la participación de los investigadores Sergio Pantano, del IPMont (Uruguay), y Leandro Martínez, de la Unicamp (Brasil).</p>
+                        </a>
+                    </li>
+                    <li class="news-card">
+                        <a class="news-card-link" href="https://pubs.acs.org/doi/10.1021/acs.jcim.5c01226" target="_blank" rel="noopener">
+                            <h5 class="news-card-title">SIRAH Tools GUI Paper is here!</h5>
+                            <div class="news-card-media">
+                                <img src="images/graphical_abstracts/sirah_tools_logo_small.png" alt="">
+                            </div>
+                            <p class="news-card-text">Ballesteros-Casallas et al., JCIM 2025. SIRAH Tools GUI is a graphical user interface that integrates with VMD and extends the capabilities of the SIRAH Tools plugin for analyzing molecular simulations performed with the SIRAH force field.</p>
+                        </a>
+                    </li>
+            </ul>
+
+            <div class="news-dots" id="newsDots"></div>
         </div>
     </div>
 </section>
@@ -403,19 +299,34 @@
 </section>
 -->
 
-<section class="feature bg-2">
+<section class="feature">
   <div class="container">
-    <div class="row justify-content-end">
+    <div class="row align-items-start">
+      <div class="col-md-6">
+        <figure class="cg-compare">
+          <div class="cg-compare-frame">
+            <div class="cg-compare-layer">
+              <img src="images/cgdna-2.webp" alt="The same stretch of DNA in two resolutions: every atom drawn individually, and the same double helix with atoms grouped into the beads and bonds SIRAH uses." loading="lazy" decoding="async" width="1920" height="1080">
+            </div>
+            <div class="cg-compare-layer cg-compare-top">
+              <img src="images/aadna-2.webp" alt="" loading="lazy" decoding="async" width="1920" height="1080">
+            </div>
+            <span class="cg-compare-divider" aria-hidden="true"></span>
+            <span class="cg-compare-handle" aria-hidden="true"></span>
+          </div>
+          <input class="cg-compare-range" type="range" min="0" max="100" value="50" step="1" aria-label="Slide to compare the all-atom and coarse-grained DNA">
+          <figcaption class="cg-compare-legend">
+            <span>Coarse-grained</span>
+            <span>All-atom</span>
+          </figcaption>
+        </figure>
+      </div>
+
       <div class="col-md-6">
         <a name="ABOUT"></a>
-		<div class="section-title"><h2>ABOUT SIRAH</h2></div>
-        <p align="justify"><h6>SIRAH is a coarse-grained and multiscale force field for molecular dynamics simulations that offers plug-and-play topologies and parameters for aqueous solvent, phospholipids, DNA, metal ions, and proteins, including post-translational modifications and glycosylation.</h6></p>
+		<div class="section-title"><h2>About SIRAH</h2></div>
+        <p align="justify"><h6>SIRAH is a coarse-grained and multiscale force field for molecular dynamics simulations that offers plug-and-play topologies and parameters for aqueous solvent, phospholipids, sphingolipids, DNA, metal ions, and proteins, including post-translational modifications and glycosylation.</h6></p>
         <p align="justify"><h6>It was designed, implemented, and developed by the <strong>Biomolecular Simulations Group</strong> at the <a href="https://pasteur.uy/en/" target="_blank">Institut Pasteur de Montevideo</a>, Uruguay, which is also responsible for its regular maintenance.</h6></p>
-		<h6>The current version includes:</h6>
-		<p align="justify"><h6> - A description of different protonation states and most common post-translational modifications for protein residues;<br>
-			- Compatibility for mapping various force field atom types and experimental structures;<br>
-			- The ability to leverage GPU acceleration in AMBER, NAMD and GROMACS codes; <br>
-			- A collection of scripts, known as <a href="https://academic.oup.com/bioinformatics/article/32/10/1568/1743152" target="_blank">SIRAH Tools</a>, that facilitate the process of mapping all-atom files to CG representations, backmapping, visualizing, and analyzing SIRAH trajectories directly on the popular VMD program for molecular visualization.</h6></p>			
 		<h4>The latest version of SIRAH is available at SIRAH FF GitHub: </h4>
         <a href="https://github.com/SIRAHFF/documentation/releases" class="btn btn-view-works" target="_blank">SIRAH GITHUB</a>
       </div>
@@ -528,21 +439,43 @@
 <!-- footer Start -->
 <footer class="footer">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="footer-manu">
-					<ul>
-						<li><a href="index.html#ABOUT">About SIRAH</a></li>
-						<li><a href="contact.html">Contact us</a></li>
-						<li><a href="https://github.com/SIRAHFF/documentation/releases/" target="_blank">Download</a></li>
-						<li><a href="https://sirahff.github.io/documentation/" target="_blank">Tutorials</a></li>
-						<li><a href="index.html#NEWS">News</a></li>
-					</ul>
+		<div class="footer-top">
+			<div class="footer-brand">
+				<a class="footer-logo" href="index.html">
+					<img src="images/icos/android-chrome-192x192.png" alt="" width="44" height="44">
+					<span>SIRAH Force Field</span>
+				</a>
+				<p class="footer-tagline">Southamerican Initiative for a Rapid and Accurate Hamiltonian</p>
+				<div class="footer-social">
+					<a href="https://x.com/SIRAHForcefield" target="_blank" rel="noopener" aria-label="SIRAH on X">
+						<i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+					</a>
+					<a href="https://www.youtube.com/channel/UCLK25yNsJPlej_fEKdLc1qw" target="_blank" rel="noopener" aria-label="SIRAH on YouTube">
+						<i class="fab fa-youtube" aria-hidden="true"></i>
+					</a>
+					<a href="https://github.com/SIRAHFF" target="_blank" rel="noopener" aria-label="SIRAH on GitHub">
+						<i class="fab fa-github" aria-hidden="true"></i>
+					</a>
+					<a href="https://scholar.google.com.uy/citations?hl=es&user=Rqr6Jw4AAAAJ" target="_blank" rel="noopener" aria-label="SIRAH on Google Scholar">
+						<i class="fa-brands fa-google-scholar" aria-hidden="true"></i>
+					</a>
 				</div>
-				<p class="copyright mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; SIRAH Forcefield & Biomolecular Simulations Group. All rights reserved. <br> Designed & Developed by <a
-						href="http://www.themefisher.com">Themefisher</a> adapted by Biomolecular Simulations Group.				
-				</p>
 			</div>
+
+			<nav class="footer-links" aria-label="Footer">
+				<ul>
+					<li><a href="index.html#NEWS">News</a></li>
+					<li><a href="index.html#ABOUT">About SIRAH</a></li>
+					<li><a href="https://github.com/SIRAHFF/documentation/releases/" target="_blank" rel="noopener">Download</a></li>
+					<li><a href="https://sirahff.github.io/documentation/" target="_blank" rel="noopener">Tutorials</a></li>
+					<li><a href="contact.html">Contact us</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="footer-bottom">
+			<p class="copyright">Copyright <script>document.write(new Date().getFullYear())</script> &copy; SIRAH Forcefield &amp; Biomolecular Simulations Group. All rights reserved.</p>
+			<p class="footer-credit">Designed &amp; Developed by <a href="http://www.themefisher.com" target="_blank" rel="noopener">Themefisher</a>, adapted by Biomolecular Simulations Group.</p>
 		</div>
 	</div>
 </footer>
