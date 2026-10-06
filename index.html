@@ -142,6 +142,9 @@
 
 <!-- Slider Start -->
 <section class="slider">
+	<video class="slider-video" autoplay muted loop playsinline preload="metadata" poster="images/hero_pcv2_cover.webp">
+		<source src="images/hero_pcv2_animation_web.mp4" type="video/mp4" media="(min-width: 768px)">
+	</video>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -178,6 +181,15 @@
             </div>
 
             <ul class="news-track" id="newsTrack" tabindex="0" role="group" aria-label="News and latest publications">
+			        <li class="news-card">
+                        <a class="news-card-link" href="https://doi.org/10.1021/acs.jcim.6c01934" target="_blank" rel="noopener">
+                            <h5 class="news-card-title">Whole small naked virus simulations using SIRAH</h5>
+                            <div class="news-card-media">
+                                <img src="images/graphical_abstracts/jcim_pcv2_26.png" alt="">
+                            </div>
+                            <p class="news-card-text">Santos et al., J. Chem. Inf. Model , 2026. <br> We report a methodology combining AI-based structural prediction, lattice MC simulations, and multiscale MD with SIRAH to generate and simulate 3D topological models of complete virions.</p>
+                        </a>
+                    </li>
                     <li class="news-card">
                         <a class="news-card-link" href="https://doi.org/10.1039/d6cp01408a" target="_blank" rel="noopener">
                             <h5 class="news-card-title">Dissecting the impact of charge distribution on antibacterial peptides using SIRAH</h5>
@@ -316,8 +328,8 @@
           </div>
           <input class="cg-compare-range" type="range" min="0" max="100" value="50" step="1" aria-label="Slide to compare the all-atom and coarse-grained DNA">
           <figcaption class="cg-compare-legend">
-            <span>Coarse-grained</span>
             <span>All-atom</span>
+            <span>Coarse-grained</span>
           </figcaption>
         </figure>
       </div>
@@ -325,7 +337,7 @@
       <div class="col-md-6">
         <a name="ABOUT"></a>
 		<div class="section-title"><h2>About SIRAH</h2></div>
-        <p align="justify"><h6>SIRAH is a coarse-grained and multiscale force field for molecular dynamics simulations that offers plug-and-play topologies and parameters for aqueous solvent, phospholipids, sphingolipids, DNA, metal ions, and proteins, including post-translational modifications and glycosylation.</h6></p>
+        <p align="justify"><h6>SIRAH is a coarse-grained and multiscale force field for molecular dynamics simulations that offers plug-and-play topologies and parameters for aqueous solvent, phospholipids, DNA, metal ions, and proteins, including post-translational modifications and glycosylation.</h6></p>
         <p align="justify"><h6>It was designed, implemented, and developed by the <strong>Biomolecular Simulations Group</strong> at the <a href="https://pasteur.uy/en/" target="_blank">Institut Pasteur de Montevideo</a>, Uruguay, which is also responsible for its regular maintenance.</h6></p>
 		<h4>The latest version of SIRAH is available at SIRAH FF GitHub: </h4>
         <a href="https://github.com/SIRAHFF/documentation/releases" class="btn btn-view-works" target="_blank">SIRAH GITHUB</a>
