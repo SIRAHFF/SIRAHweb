@@ -600,7 +600,7 @@ input[type=tel]:focus {
   width: 100%;
   height: 100%;
   background: #52130C; /* color slider*/
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 .owl-dots .owl-dot.active span,
@@ -4152,7 +4152,7 @@ input[type=tel]:focus {
   width: 100%;
   height: 100%;
   background: #52130C; /* color slider*/
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 .owl-dots .owl-dot.active span,
@@ -4548,7 +4548,7 @@ ul.dropdown-menu li {
   color: #b9b9b9;
   font-size: 18px;
   line-height: 27px;
-  font-weight: 300;
+  font-weight: 700;
 }
 @media (max-width: 992px) {
   .slider .block p {
@@ -6724,6 +6724,17 @@ ul.top-info li p.info-text {
   list-style: square;
   text-align: justify;
 }
+
+.anchor-text {
+  display: block;
+  position: relative;
+  top: -120px;       /* Altere este valor para controlar a altura da parada */
+  visibility: hidden;
+  height: 0;        /* Garante que não crie espaço extra */
+  margin: 0;        /* Remove qualquer margem residual */
+  padding: 0;       /* Remove qualquer preenchimento residual */
+}
+
 /* ==========================================================================
    News carousel
    A scroll-snap track instead of a slide-at-a-time carousel: it swipes and
